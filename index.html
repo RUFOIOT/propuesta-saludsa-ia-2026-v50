@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta Técnico-Comercial · Salud S.A. × IA 2026 · v5.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --navy-mid: #0f2044;
+    --navy-light: #1a3060;
+    --gold: #c9a84c;
+    --gold-light: #e8c96a;
+    --azure: #0078d4;
+    --azure-light: #50e6ff;
+    --azure-mid: #005a9e;
+    --white: #ffffff;
+    --off-white: #f4f6fb;
+    --gray: #8899aa;
+    --green: #28a745;
+    --red: #dc3545;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    line-height: 1.6;
+  }
+
+  /* ── COVER ── */
+  .cover {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #050d1a 0%, #0a1628 40%, #0f2044 70%, #0a1628 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+  }
+  .cover::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    background: radial-gradient(ellipse at 70% 30%, rgba(0,120,212,0.12) 0%, transparent 60%),
+                radial-gradient(ellipse at 20% 80%, rgba(201,168,76,0.08) 0%, transparent 50%);
+  }
+  .cover-badge {
+    background: rgba(201,168,76,0.15);
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .cover h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    color: var(--white);
+    margin-bottom: 8px;
+    position: relative;
+  }
+  .cover h1 span { color: var(--gold); }
+  .cover-subtitle {
+    font-size: clamp(0.95rem, 2vw, 1.15rem);
+    color: #8899bb;
+    max-width: 680px;
+    margin: 16px auto 40px;
+    line-height: 1.7;
+    position: relative;
+  }
+  .cover-pills {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center; margin-bottom: 48px;
+    position: relative;
+  }
+  .pill {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.12);
+    padding: 8px 20px;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #ccd4e8;
+    letter-spacing: 0.5px;
+  }
+  .pill.gold { border-color: var(--gold); color: var(--gold); background: rgba(201,168,76,0.08); }
+  .pill.azure { border-color: var(--azure-light); color: var(--azure-light); background: rgba(0,120,212,0.1); }
+  .cover-numbers {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center;
+    position: relative;
+  }
+  .cover-number { text-align: center; }
+  .cover-number .big {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .cover-number .label {
+    font-size: 11px;
+    color: #667788;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 4px;
+  }
+  .cover-version {
+    position: absolute;
+    top: 24px; right: 32px;
+    font-size: 11px;
+    color: #445566;
+    font-weight: 600;
+    letter-spacing: 1px;
+  }
+  .cover-footer {
+    position: absolute;
+    bottom: 24px;
+    left: 0; right: 0;
+    text-align: center;
+    font-size: 11px;
+    color: #334455;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 40px;
+  }
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .section-desc {
+    color: #8899bb;
+    font-size: 1rem;
+    max-width: 680px;
+    line-height: 1.8;
+    margin-bottom: 40px;
+  }
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.3), transparent);
+    margin: 0 0 48px;
+  }
+
+  /* ── EXEC SUMMARY GRID ── */
+  .exec-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .stat-card {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+  }
+  .stat-card .val {
+    font-size: 2.4rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .stat-card .unit { font-size: 1.1rem; font-weight: 600; color: var(--gold-light); }
+  .stat-card .lbl { font-size: 11px; color: #667788; text-transform: uppercase; letter-spacing: 1px; margin-top: 8px; }
+
+  /* ── PROJECT CARDS ── */
+  .project-block {
+    background: var(--navy-mid);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 32px;
+  }
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .project-tag {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--azure-light);
+    margin-bottom: 8px;
+  }
+  .project-name {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 2.5vw, 1.9rem);
+    font-weight: 700;
+    color: var(--white);
+  }
+  .project-price {
+    text-align: right;
+  }
+  .project-price .amount {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .project-price .iva { font-size: 12px; color: #556677; margin-top: 4px; }
+  .project-price .weeks {
+    display: inline-block;
+    background: rgba(201,168,76,0.12);
+    border: 1px solid rgba(201,168,76,0.25);
+    color: var(--gold);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+
+  .metrics-row {
+    display: flex; flex-wrap: wrap; gap: 20px; margin-bottom: 28px;
+  }
+  .metric-chip {
+    background: rgba(0,120,212,0.1);
+    border: 1px solid rgba(0,120,212,0.25);
+    border-radius: 10px;
+    padding: 14px 20px;
+    min-width: 150px;
+  }
+  .metric-chip .val { font-size: 1.5rem; font-weight: 900; color: var(--azure-light); }
+  .metric-chip .lbl { font-size: 10px; color: #8899bb; margin-top: 4px; letter-spacing: 0.5px; }
+
+  /* ── DELIVERABLES TABLE ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+  }
+  th {
+    background: rgba(255,255,255,0.04);
+    color: #8899bb;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.88rem;
+    color: #ccd4e8;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  td:first-child { font-weight: 700; color: var(--gold); font-size: 0.82rem; white-space: nowrap; }
+  td:nth-child(2) { color: var(--white); font-weight: 600; }
+  tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* ── REQUIREMENTS ── */
+  .req-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .req-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: 0.85rem;
+    color: #aabbcc;
+  }
+  .req-item::before { content: '◆'; color: var(--gold); font-size: 8px; margin-top: 4px; flex-shrink: 0; }
+
+  /* ── MAINTENANCE BOX ── */
+  .maint-box {
+    background: rgba(201,168,76,0.06);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 12px;
+    padding: 20px 24px;
+    margin-top: 24px;
+  }
+  .maint-box strong { color: var(--gold); }
+  .maint-box p { font-size: 0.88rem; color: #aabbcc; margin-top: 8px; }
+
+  /* ── TIMELINE TABLE ── */
+  .timeline-table th:first-child { width: 50px; }
+  .phase-badge {
+    display: inline-block;
+    background: rgba(201,168,76,0.15);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold);
+    padding: 2px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .hito-badge {
+    display: inline-block;
+    background: rgba(40,167,69,0.15);
+    border: 1px solid rgba(40,167,69,0.3);
+    color: #5dca77;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  /* ── SECURITY SECTION ── */
+  .security-section {
+    background: linear-gradient(135deg, #050d1a 0%, #071220 100%);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+    padding: 72px 0;
+  }
+  .layer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+  .layer-card {
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .layer-card.azure-card {
+    background: linear-gradient(135deg, rgba(0,78,152,0.25) 0%, rgba(0,120,212,0.12) 100%);
+    border-color: rgba(0,120,212,0.3);
+  }
+  .layer-card.security-card {
+    background: linear-gradient(135deg, rgba(201,168,76,0.1) 0%, rgba(201,168,76,0.04) 100%);
+    border-color: rgba(201,168,76,0.25);
+  }
+  .layer-card.nemo-card {
+    background: linear-gradient(135deg, rgba(80,230,255,0.08) 0%, rgba(0,120,212,0.05) 100%);
+    border-color: rgba(80,230,255,0.2);
+  }
+  .layer-num {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .layer-num.azure { color: var(--azure-light); }
+  .layer-num.gold { color: var(--gold); }
+  .layer-num.nemo { color: #50e6ff; }
+  .layer-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--white);
+  }
+  .layer-tags {
+    display: flex; flex-wrap: wrap; gap: 8px;
+  }
+  .tag {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #aabbcc;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 500;
+  }
+  .tag.azure-tag { background: rgba(0,120,212,0.15); border-color: rgba(0,120,212,0.3); color: var(--azure-light); }
+  .tag.gold-tag { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.25); color: var(--gold); }
+  .tag.green-tag { background: rgba(40,167,69,0.1); border-color: rgba(40,167,69,0.25); color: #5dca77; }
+
+  /* Azure WAF Detail */
+  .azure-detail-box {
+    background: rgba(0,50,120,0.3);
+    border: 1px solid rgba(0,120,212,0.35);
+    border-radius: 14px;
+    padding: 28px;
+    margin: 20px 0;
+  }
+  .azure-detail-box h4 {
+    color: var(--azure-light);
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .azure-detail-box p, .azure-detail-box li {
+    font-size: 0.87rem;
+    color: #aabbcc;
+    line-height: 1.7;
+  }
+  .azure-detail-box ul { padding-left: 18px; margin-top: 8px; }
+  .azure-detail-box li { margin-bottom: 4px; }
+
+  /* MFA Box */
+  .mfa-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    margin-top: 16px;
+  }
+  .mfa-card {
+    background: rgba(0,120,212,0.1);
+    border: 1px solid rgba(0,120,212,0.25);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .mfa-card .mfa-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .mfa-card .mfa-title { font-size: 0.85rem; font-weight: 700; color: var(--azure-light); margin-bottom: 6px; }
+  .mfa-card .mfa-desc { font-size: 0.78rem; color: #8899bb; line-height: 1.6; }
+  .mfa-card .mfa-users { font-size: 0.75rem; color: var(--gold); font-weight: 600; margin-top: 8px; }
+
+  /* 7 Barriers */
+  .barriers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+  }
+  .barrier {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    gap: 16px;
+  }
+  .barrier-num {
+    background: var(--gold);
+    color: var(--navy);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 0.85rem;
+    flex-shrink: 0;
+  }
+  .barrier h4 { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .barrier p { font-size: 0.78rem; color: #7788aa; line-height: 1.6; }
+
+  /* ── NEMO BLOCK ── */
+  .nemo-block {
+    background: linear-gradient(135deg, rgba(80,230,255,0.06), rgba(0,120,212,0.08));
+    border: 1px solid rgba(80,230,255,0.2);
+    border-radius: 20px;
+    padding: 36px;
+    margin-bottom: 40px;
+    text-align: center;
+  }
+  .nemo-block h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #50e6ff;
+    margin-bottom: 12px;
+  }
+  .nemo-block p { color: #8899bb; font-size: 0.9rem; max-width: 680px; margin: 0 auto 24px; line-height: 1.8; }
+  .nemo-badges {
+    display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;
+  }
+  .nemo-badge {
+    background: rgba(80,230,255,0.08);
+    border: 1px solid rgba(80,230,255,0.2);
+    color: #50e6ff;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  /* ── HUBSPOT + SHEETS ── */
+  .integration-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin: 32px 0;
+  }
+  @media(max-width:720px){ .integration-row { grid-template-columns: 1fr; } }
+  .integration-card {
+    border-radius: 16px;
+    padding: 28px;
+    border: 1px solid;
+  }
+  .integration-card.hubspot {
+    background: linear-gradient(135deg, rgba(255,122,0,0.08), rgba(255,91,0,0.04));
+    border-color: rgba(255,122,0,0.25);
+  }
+  .integration-card.gsheets {
+    background: linear-gradient(135deg, rgba(52,168,83,0.08), rgba(52,168,83,0.04));
+    border-color: rgba(52,168,83,0.25);
+  }
+  .integration-card h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .integration-card.hubspot h4 { color: #ff7a00; }
+  .integration-card.gsheets h4 { color: #34a853; }
+  .integration-card p { font-size: 0.84rem; color: #8899bb; line-height: 1.7; margin-bottom: 12px; }
+  .integration-card ul { padding-left: 16px; }
+  .integration-card li { font-size: 0.82rem; color: #aabbcc; line-height: 1.7; margin-bottom: 3px; }
+
+  /* Sheets tabs */
+  .sheets-tabs {
+    display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px;
+  }
+  .sheets-tab {
+    background: rgba(52,168,83,0.1);
+    border: 1px solid rgba(52,168,83,0.25);
+    color: #34a853;
+    padding: 4px 10px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 600;
+  }
+
+  /* ── PRICING ── */
+  .pricing-section {
+    background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%);
+    padding: 72px 0;
+  }
+  .pricing-table-wrap { overflow-x: auto; }
+  .pricing-table th { background: rgba(201,168,76,0.1); color: var(--gold); }
+  .pricing-table td:nth-child(3),
+  .pricing-table td:nth-child(4),
+  .pricing-table td:nth-child(5) { text-align: right; }
+  .pricing-table .total-row td {
+    font-weight: 800;
+    color: var(--gold);
+    background: rgba(201,168,76,0.06);
+    border-top: 2px solid rgba(201,168,76,0.3);
+  }
+  .conditions-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-top: 32px;
+  }
+  @media(max-width:700px){ .conditions-grid { grid-template-columns: 1fr; } }
+  .condition-card {
+    border-radius: 14px;
+    padding: 24px 18px;
+    text-align: center;
+    border: 1px solid;
+  }
+  .condition-card.anticipo {
+    background: rgba(201,168,76,0.06);
+    border-color: rgba(201,168,76,0.25);
+  }
+  .condition-card.avance {
+    background: rgba(80,230,255,0.05);
+    border-color: rgba(80,230,255,0.2);
+  }
+  .condition-card.contralentrega {
+    background: rgba(0,120,212,0.06);
+    border-color: rgba(0,120,212,0.25);
+  }
+  .condition-card .pct {
+    font-size: 2.6rem;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .anticipo .pct { color: var(--gold); }
+  .avance .pct { color: #50e6ff; }
+  .contralentrega .pct { color: var(--azure-light); }
+  .condition-card .amount { font-size: 1.6rem; font-weight: 800; margin: 4px 0; }
+  .condition-card .desc { font-size: 0.82rem; color: #778899; line-height: 1.6; }
+
+  /* ── KPIs ── */
+  .kpi-table td:nth-child(3),
+  .kpi-table td:nth-child(4) { text-align: center; }
+  .kpi-table td:nth-child(3) { color: #cc6666; }
+  .kpi-table td:nth-child(4) { color: #5dca77; font-weight: 700; }
+  .proj-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .proj-badge.p01 { background: rgba(0,120,212,0.2); color: var(--azure-light); }
+  .proj-badge.p02 { background: rgba(201,168,76,0.2); color: var(--gold); }
+
+  /* ── COMPLIANCE ROW ── */
+  .compliance-row {
+    display: flex; flex-wrap: wrap; gap: 12px;
+    justify-content: center;
+    margin: 32px 0;
+  }
+  .comp-badge {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.1);
+    color: #99aabb;
+    padding: 6px 16px;
+    border-radius: 6px;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .comp-badge.azure { border-color: rgba(0,120,212,0.3); color: var(--azure-light); }
+  .comp-badge.gold { border-color: rgba(201,168,76,0.3); color: var(--gold); }
+
+  /* ── TERMS ── */
+  .terms-section { padding: 72px 0; }
+  .terms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+    margin-bottom: 48px;
+  }
+  .term-item {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    gap: 14px;
+  }
+  .term-num {
+    color: var(--gold);
+    font-weight: 900;
+    font-size: 1rem;
+    min-width: 24px;
+  }
+  .term-item h4 { font-size: 0.88rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+  .term-item p { font-size: 0.80rem; color: #7788aa; line-height: 1.6; }
+
+  /* ── SIGNATURES ── */
+  .sign-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    margin-top: 40px;
+  }
+  @media(max-width:600px){ .sign-row { grid-template-columns: 1fr; } }
+  .sign-box {
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 28px;
+    text-align: center;
+    background: rgba(255,255,255,0.02);
+  }
+  .sign-box .role { font-size: 10px; color: #556677; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px; }
+  .sign-box .name { font-size: 1.1rem; font-weight: 700; color: var(--white); }
+  .sign-box .email { font-size: 0.8rem; color: #556677; margin-top: 4px; }
+  .sign-line {
+    height: 1px;
+    background: rgba(255,255,255,0.1);
+    margin: 20px auto;
+    width: 80%;
+  }
+  .sign-box .date-label { font-size: 11px; color: #334455; }
+
+  /* ── CLOSING BANNER ── */
+  .closing-banner {
+    background: linear-gradient(135deg, #050d1a, #0a1628);
+    border-top: 1px solid rgba(201,168,76,0.2);
+    padding: 60px 40px;
+    text-align: center;
+  }
+  .closing-banner h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: var(--white);
+    margin-bottom: 12px;
+  }
+  .closing-banner h2 span { color: var(--gold); }
+  .closing-banner .tagline { font-size: 0.9rem; color: #667788; margin-bottom: 32px; }
+  .closing-numbers {
+    display: flex; flex-wrap: wrap; gap: 32px;
+    justify-content: center;
+  }
+  .closing-num { text-align: center; }
+  .closing-num .big { font-size: 2rem; font-weight: 900; color: var(--gold); }
+  .closing-num .lbl { font-size: 10px; color: #445566; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+  /* ── PRINT ── */
+  @media print {
+    body { background: white; color: black; }
+    .section, .security-section .section, .pricing-section .section, .terms-section .section { padding: 40px 24px; }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 768px) {
+    .project-header { flex-direction: column; }
+    .project-price { text-align: left; }
+    .section { padding: 48px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ════════════════════════════ COVER ════════════════════════════ -->
+<div class="cover">
+  <div class="cover-version">VERSIÓN 5.0 · JUNIO 2026 · CONFIDENCIAL</div>
+  <div class="cover-badge">Propuesta Técnico-Comercial</div>
+  <h1>Transformación<br>Agéntica IA<br><span>Salud S.A. 2026</span></h1>
+  <p class="cover-subtitle">Implementación enterprise de inteligencia artificial agéntica para el ciclo de ventas y marketing digital, sobre arquitectura Azure segura y certificada con NVIDIA NEMO — Enterprise Agentic Orchestration Platform.</p>
+  <div class="cover-pills">
+    <span class="pill gold">PROYECTO 01 · Sales Pilot v2</span>
+    <span class="pill gold">PROYECTO 02 · Pep &amp; Zizu</span>
+    <span class="pill azure">Arquitectura Azure Enterprise</span>
+    <span class="pill azure">Azure Entra ID MFA</span>
+    <span class="pill">HubSpot CRM Bidireccional</span>
+    <span class="pill">Google Sheets Trazabilidad</span>
+    <span class="pill">NVIDIA NEMO</span>
+  </div>
+  <div class="cover-numbers">
+    <div class="cover-number"><div class="big">$40,800</div><div class="label">Inversión neta</div></div>
+    <div class="cover-number"><div class="big">$46,920</div><div class="label">Total c/IVA 15%</div></div>
+    <div class="cover-number"><div class="big">16<span style="font-size:1.2rem"> sem.</span></div><div class="label">Implementación</div></div>
+    <div class="cover-number"><div class="big">$1,851</div><div class="label">Mant./mes c/IVA</div></div>
+    <div class="cover-number"><div class="big">400</div><div class="label">RNs potencial</div></div>
+  </div>
+  <div class="cover-footer">Preparado por: bksegurosec@gmail.com · Dirigido a: Salud S.A. — Innovación &amp; Tecnología · Documento Confidencial</div>
+</div>
+
+
+<!-- ════════════════════════ RESUMEN EJECUTIVO ════════════════════════ -->
+<div style="background: var(--navy-mid); border-bottom: 1px solid rgba(255,255,255,0.05);">
+<div class="section">
+  <div class="section-label">Resumen Ejecutivo</div>
+  <div class="section-title">Dos proyectos.<br>Una transformación estratégica.</div>
+  <p class="section-desc">Esta propuesta presenta la implementación de dos plataformas de inteligencia artificial agéntica diseñadas para potenciar el ciclo comercial y la fuerza de ventas de Salud S.A. mediante automatización, personalización y presencia digital activa, sobre infraestructura Microsoft Azure enterprise.</p>
+  <div class="divider"></div>
+
+  <div class="exec-grid">
+    <div class="stat-card"><div class="val">$40,800</div><div class="lbl">Inversión neta sin IVA</div></div>
+    <div class="stat-card"><div class="val">$46,920</div><div class="lbl">Total c/IVA 15%</div></div>
+    <div class="stat-card"><div class="val">16 <span class="unit">sem.</span></div><div class="lbl">Ambos proyectos</div></div>
+    <div class="stat-card"><div class="val">$1,851</div><div class="lbl">Mant./mes c/IVA · Desde mes 4</div></div>
+  </div>
+
+  <!-- Project summaries -->
+  <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 32px;">
+    <div style="background: rgba(0,120,212,0.06); border: 1px solid rgba(0,120,212,0.2); border-radius: 16px; padding: 28px;">
+      <div class="project-tag">Proyecto 01</div>
+      <div style="font-weight:700; font-size:1.1rem; margin-bottom:12px;">Sales Pilot v2</div>
+      <div style="font-size:0.83rem; color:#8899bb; line-height:1.7; margin-bottom:16px;">Agente multifunción de ventas: lead intelligence, conversión 24/7 e hiperpersonalización. HubSpot CRM bidireccional + Google Sheets trazabilidad. WhatsApp Business. NVIDIA NEMO.</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Lead &amp; Assistant Intelligence</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Agente conversión 24/7 (WhatsApp + Telegram)</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Hiperpersonalización · Landing única</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ HubSpot CRM bidireccional</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Google Sheets backup de trazabilidad</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Dashboard comercial en tiempo real</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Capacitación equipo de ventas</div>
+      </div>
+      <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:1.5rem; font-weight:900; color:var(--gold);">$25,000</div>
+        <div class="phase-badge">12 SEMANAS</div>
+      </div>
+    </div>
+    <div style="background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.15); border-radius: 16px; padding: 28px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">Proyecto 02</div>
+      <div style="font-weight:700; font-size:1.1rem; margin-bottom:12px;">Agencia de Marketing de Bolsillo · Pep &amp; Zizu</div>
+      <div style="font-size:0.83rem; color:#8899bb; line-height:1.7; margin-bottom:16px;">Dos agentes IA que permiten a cada RN ejecutar campañas Meta Ads en minutos desde Telegram, sin curva de aprendizaje técnico.</div>
+      <div style="display:flex; flex-direction:column; gap:6px;">
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Agente Pep: arquitecto de campañas Meta Ads</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Agente Zizu: creatividades + A/B testing</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Canal Telegram + transcripción voice notes</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Conexión directa Meta Ads Manager</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Fine-tuning con datos reales Salud S.A.</div>
+        <div style="font-size:0.8rem; color:#aabbcc;">✓ Dashboard gerencial de reportes</div>
+      </div>
+      <div style="margin-top:16px; display:flex; justify-content:space-between; align-items:center;">
+        <div style="font-size:1.5rem; font-weight:900; color:var(--gold);">$15,800</div>
+        <div class="phase-badge">10 SEMANAS</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Compliance -->
+  <div class="compliance-row">
+    <span class="comp-badge gold">LOPDP Ecuador</span>
+    <span class="comp-badge">SBS</span>
+    <span class="comp-badge">ISO 27001</span>
+    <span class="comp-badge azure">Azure WAF</span>
+    <span class="comp-badge azure">Azure Entra ID MFA</span>
+    <span class="comp-badge azure">Azure RBAC + PIM</span>
+    <span class="comp-badge">NVIDIA NEMO Enterprise</span>
+    <span class="comp-badge">Zero PII in Transit</span>
+  </div>
+
+  <!-- Notice -->
+  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; padding: 16px 20px; margin-top: 24px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#556677; margin-bottom:6px;">ℹ️ Costos de plataformas y licencias — a cargo de Salud S.A.</div>
+    <p style="font-size:0.82rem; color:#7788aa; line-height:1.7;">Los costos de consumo de APIs de IA (Claude, modelos generativos), licencias Azure, Meta Ads, tokens y plataformas de terceros son de exclusiva responsabilidad de Salud S.A. Las tarifas de mantenimiento cubren únicamente servicios técnicos, soporte y actualizaciones del proveedor.</p>
+  </div>
+
+  <!-- Azure / Saludsa clause -->
+  <div style="background: rgba(0,120,212,0.06); border: 1px solid rgba(0,120,212,0.25); border-radius: 12px; padding: 20px 24px; margin-top: 16px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--azure-light); margin-bottom:10px;">☁️ Desarrollo sobre Azure · Bajo lineamientos Salud S.A.</div>
+    <p style="font-size:0.85rem; color:#aabbcc; line-height:1.75;">El desarrollo de la solución será implementado en la nube de Azure bajo los lineamientos, estándares y entregables de desarrollo y seguridad definidos y comunicados por Salud S.A. Se realizará entrega del <strong style="color:var(--white);">código fuente</strong> y todo lo técnicamente necesario para que, una vez implementado, Salud S.A. pueda operarlo y mantenerlo de forma autónoma. El mantenimiento técnico del proveedor inicia en el <strong style="color:var(--gold);">Mes 4</strong> y la <strong style="color:var(--gold);">entrega formal al Departamento de TI de Salud S.A.</strong> se realiza en el <strong style="color:var(--gold);">Mes 8</strong>, bajo los mismos lineamientos de seguridad y desarrollo acordados.</p>
+  </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════ PROYECTO 01 ════════════════════════ -->
+<div style="background: var(--navy);">
+<div class="section">
+  <div class="section-label">Proyecto 01 · Alcance y Entregables</div>
+  <div class="section-title">Sales Pilot v2<br><span style="color:#8899bb; font-size:70%;">Agente Multifunción de Ventas</span></div>
+  <p class="section-desc">Transformación del ciclo de venta con IA agéntica · HubSpot CRM · WhatsApp Business · Google Sheets Trazabilidad · NVIDIA NEMO</p>
+  <div class="divider"></div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div class="project-tag">Proyecto 01 — Sales Pilot v2</div>
+        <div class="project-name">Agente Multifunción de Ventas</div>
+      </div>
+      <div class="project-price">
+        <div class="amount">$25,000</div>
+        <div class="iva">+ IVA 15% = $28,750</div>
+        <div class="weeks">12 SEMANAS</div>
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-chip"><div class="val">9%→20%</div><div class="lbl">Conversión leads (ref.)</div></div>
+      <div class="metric-chip"><div class="val">-94%</div><div class="lbl">Tiempo gestión manual</div></div>
+      <div class="metric-chip"><div class="val">0 min</div><div class="lbl">Tiempo de respuesta</div></div>
+      <div class="metric-chip"><div class="val">100%</div><div class="lbl">Trazabilidad en HubSpot + Sheets</div></div>
+    </div>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Entregable</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>E1.1</td><td>Lead Intelligence Agent</td><td>Análisis de perfil público, briefing automatizado y argumento de venta contextualizado por prospecto.</td></tr>
+        <tr><td>E1.2</td><td>Agente Conversión 24/7</td><td>WhatsApp Business, respuesta inmediata (0 min), calificación inteligente, agenda automática con asesor humano.</td></tr>
+        <tr><td>E1.3</td><td>Motor de Hiperpersonalización</td><td>Perfil del cliente → landing page única por prospecto con plan recomendado por IA. Hosting GitHub Pages / Azure Static Web Apps.</td></tr>
+        <tr><td>E1.4</td><td>Integración HubSpot CRM <span class="tag gold-tag" style="margin-left:6px">CRM Principal</span></td><td>Sincronización bidireccional de leads con HubSpot. Los agentes crean/actualizan contactos, deals y actividades. Pipeline por estado de conversión. Requiere licencia HubSpot CRM vigente de Salud S.A.</td></tr>
+        <tr><td>E1.5</td><td>Dashboard Comercial</td><td>Panel en tiempo real: actividad por asesor, leads activos, estado de pipeline HubSpot y métricas de operación.</td></tr>
+        <tr><td>E1.6</td><td>Comandos Bot</td><td><code>propuesta</code> / <code>cotizar</code> / <code>seguimiento</code> / <code>agenda</code> / <code>briefing</code> — operables por asesores en WhatsApp y Telegram.</td></tr>
+        <tr><td>E1.7</td><td>Google Sheets Trazabilidad <span class="tag green-tag" style="margin-left:6px">Backup BI</span></td><td>Los agentes alimentan un Google Sheets maestro con: origen de lead, canal, timestamp, score IA, estado en HubSpot, interacciones, resultado de conversión. 5 tabs: Leads · Interacciones · Performance Agentes · Funnel de Conversión · KPIs Gerenciales. Funciona como respaldo auditadle y fuente para indicadores de performance y conversión independiente del CRM.</td></tr>
+        <tr><td>E1.8</td><td>Capacitación</td><td>Onboarding del equipo de ventas, documentación operativa y acompañamiento inicial (2 sesiones).</td></tr>
+        <tr><td>E1.9</td><td>Orquestación NVIDIA NEMO</td><td>Configuración enterprise del motor agéntico, TTL de sesión 30 min, logs inmutables en Azure Activity Log.</td></tr>
+      </tbody>
+    </table>
+
+    <!-- HubSpot + Sheets Integration Detail -->
+    <div class="integration-row">
+      <div class="integration-card hubspot">
+        <h4>🟠 HubSpot CRM — Integración Principal</h4>
+        <p>Plataforma CRM de registro para todos los leads y operaciones de ventas. Los agentes escriben y leen de HubSpot en tiempo real mediante la HubSpot API v3.</p>
+        <ul>
+          <li>Creación automática de contacto y deal al primer contacto</li>
+          <li>Actualización de etapa de pipeline por acción del agente</li>
+          <li>Registro de actividades: llamadas, mensajes, propuestas</li>
+          <li>Sincronización bidireccional — el asesor puede actualizar desde HubSpot</li>
+          <li>Alertas internas cuando lead pasa a "Listo para cerrar"</li>
+          <li>Requiere: acceso API HubSpot (licencia Starter o superior)</li>
+        </ul>
+      </div>
+      <div class="integration-card gsheets">
+        <h4>🟢 Google Sheets — Capa de Trazabilidad y BI</h4>
+        <p>Respaldo auditadle e independiente del CRM. Los agentes registran cada interacción de forma automatizada, generando indicadores de performance y conversión en tiempo real.</p>
+        <ul>
+          <li>Alimentado automáticamente por los agentes — sin intervención manual</li>
+          <li>Solo datos pseudonimizados — sin PII sensible</li>
+          <li>Acceso controlado por Google Workspace de Salud S.A.</li>
+          <li>Base para indicadores gerenciales sin dependencia de HubSpot</li>
+          <li>Exportable, imprimible, conectable a Looker Studio o Data Studio</li>
+        </ul>
+        <div class="sheets-tabs">
+          <span class="sheets-tab">📥 Leads</span>
+          <span class="sheets-tab">💬 Interacciones</span>
+          <span class="sheets-tab">📊 Performance Agentes</span>
+          <span class="sheets-tab">📈 Funnel Conversión</span>
+          <span class="sheets-tab">🎯 KPIs Gerenciales</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Requirements -->
+    <div style="margin-top: 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:12px;">⚡ Requisitos del Cliente</div>
+      <div class="req-list">
+        <div class="req-item">Acceso API HubSpot (licencia CRM vigente)</div>
+        <div class="req-item">Número WhatsApp Business verificado</div>
+        <div class="req-item">Base de leads activos (CSV o desde HubSpot)</div>
+        <div class="req-item">Google Workspace cuenta con permisos Sheets</div>
+        <div class="req-item">Designación de asesor punto focal</div>
+        <div class="req-item">Validación interna de flujos de venta</div>
+        <div class="req-item">Aprobación IT para API Gateway externo (Azure APIM)</div>
+      </div>
+    </div>
+
+    <div class="maint-box">
+      <strong>🔄 Mantenimiento desde Mes 4 — $863/mes + IVA 15% = $992.45/mes</strong>
+      <p>Cubre: soporte técnico, actualizaciones de flujos, monitoreo de operación, ajuste de agentes, mantenimiento del dashboard y del Google Sheets de trazabilidad. Los costos de APIs y plataformas corren por cuenta de Salud S.A.</p>
+    </div>
+  </div>
+
+  <!-- Cronograma P01 -->
+  <div style="margin-top: 32px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:16px;">⏱️ Cronograma Referencial — Sales Pilot v2</div>
+    <div style="overflow-x:auto;">
+    <table class="timeline-table">
+      <thead><tr><th>Fase</th><th>Período</th><th>Actividades principales</th><th>Hito</th></tr></thead>
+      <tbody>
+        <tr><td><span class="phase-badge">Fase 1</span></td><td>Sem 1–4</td><td>Setup NVIDIA NEMO en Azure, integración HubSpot API, canales WhatsApp/Telegram, stack IA, Azure APIM y seguridad Azure Entra ID</td><td><span class="hito-badge">Infraestructura lista</span></td></tr>
+        <tr><td><span class="phase-badge">Fase 2</span></td><td>Sem 5–8</td><td>Activación 3 funciones con grupo inicial de leads, ajuste de argumentos, flujos, pruebas A/B. Google Sheets conectado y alimentándose.</td><td><span class="hito-badge">Piloto operativo</span></td></tr>
+        <tr><td><span class="phase-badge">Fase 3</span></td><td>Sem 9–12</td><td>Despliegue al equipo completo, capacitación, optimización y documentación de primeros resultados. HubSpot pipeline live.</td><td><span class="hito-badge">Go-live total</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p style="font-size:0.78rem; color:#445566; margin-top:12px;">Los períodos son referenciales y sujetos a disponibilidad de accesos, aprobaciones internas y recursos designados por Salud S.A. El inicio formal se contabiliza desde recepción del anticipo y firma de contrato.</p>
+  </div>
+</div>
+</div>
+
+
+<!-- ════════════════════════ PROYECTO 02 ════════════════════════ -->
+<div style="background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.04);">
+<div class="section">
+  <div class="section-label">Proyecto 02 · Alcance y Entregables</div>
+  <div class="section-title">Agencia de Marketing<br>de Bolsillo · Pep &amp; Zizu</div>
+  <p class="section-desc">IA agéntica para la fuerza de ventas · Meta Ads · Telegram · Claude · NVIDIA NEMO</p>
+  <div class="divider"></div>
+
+  <div class="project-block">
+    <div class="project-header">
+      <div>
+        <div style="color:var(--gold); font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; margin-bottom:8px;">Proyecto 02 — Agencia de Bolsillo</div>
+        <div class="project-name">Pep &amp; Zizu — Dos Agentes IA</div>
+      </div>
+      <div class="project-price">
+        <div class="amount">$15,800</div>
+        <div class="iva">+ IVA 15% = $18,170</div>
+        <div class="weeks">10 SEMANAS</div>
+      </div>
+    </div>
+
+    <div class="metrics-row">
+      <div class="metric-chip"><div class="val">15%→40%</div><div class="lbl">Adopción digital RNs</div></div>
+      <div class="metric-chip"><div class="val">-94%</div><div class="lbl">Tiempo en pauta/sem</div></div>
+      <div class="metric-chip"><div class="val">~-52%</div><div class="lbl">CPL estimado</div></div>
+      <div class="metric-chip"><div class="val">71×</div><div class="lbl">ROI ref. conservador</div></div>
+    </div>
+
+    <table>
+      <thead><tr><th>#</th><th>Entregable</th><th>Descripción</th></tr></thead>
+      <tbody>
+        <tr><td>E2.1</td><td>Agente Pep (Estratega)</td><td>Brief en lenguaje natural → campaña Meta Ads configurada. Segmentación por audiencia, presupuesto y formatos.</td></tr>
+        <tr><td>E2.2</td><td>Agente Zizu (Creativo)</td><td>Generación de artes (feed/stories/reels), copies persuasivos, A/B testing automático según brand guidelines Salud S.A.</td></tr>
+        <tr><td>E2.3</td><td>Bot Telegram</td><td>Interface conversacional para RNs. Acepta texto y voice notes. Aprobación humana obligatoria antes de lanzar cualquier campaña.</td></tr>
+        <tr><td>E2.4</td><td>Whisper STT Self-hosted</td><td>Transcripción de voice notes en Azure Container Instance aislado. Audio eliminado en 5 minutos. Sin envío a servidores externos.</td></tr>
+        <tr><td>E2.5</td><td>Meta Ads Manager</td><td>Integración con cuentas publicitarias de Salud S.A. Campañas activas desde Telegram con un paso de aprobación.</td></tr>
+        <tr><td>E2.6</td><td>Fine-tuning Salud S.A.</td><td>Entrenamiento con productos, planes, beneficios y audiencias reales de Salud S.A. para máxima personalización.</td></tr>
+        <tr><td>E2.7</td><td>Dashboard Gerencial</td><td>Métricas por RN: campañas activas, leads generados, CPL, CTR, inversión en tiempo real.</td></tr>
+        <tr><td>E2.8</td><td>Piloto 15 RNs</td><td>Un mes de operación con grupo piloto seleccionado por Salud S.A. antes del despliegue general.</td></tr>
+      </tbody>
+    </table>
+
+    <div style="margin-top: 24px;">
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:12px;">⚡ Requisitos del Cliente</div>
+      <div class="req-list">
+        <div class="req-item">Acceso a cuentas Meta Business Manager</div>
+        <div class="req-item">Selección de 15 RNs para fase piloto</div>
+        <div class="req-item">Brand guidelines Salud S.A. (logos, colores, fuentes)</div>
+        <div class="req-item">Aprobación legal para campañas automatizadas</div>
+        <div class="req-item">Designación de gerente punto focal</div>
+        <div class="req-item">Catálogo de productos y planes vigentes</div>
+      </div>
+    </div>
+
+    <div class="maint-box">
+      <strong>🔄 Mantenimiento desde Mes 4 — $747/mes + IVA 15% = $859.05/mes</strong>
+      <p>Cubre: mantenimiento del bot Telegram, soporte técnico, actualizaciones de modelos y agentes, monitoreo de integración Meta Ads. Los costos de APIs de generación de imágenes, Claude y Meta Ads corren por cuenta de Salud S.A.</p>
+    </div>
+  </div>
+
+  <!-- Cronograma P02 -->
+  <div style="margin-top: 32px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:16px;">⏱️ Cronograma Referencial — Agencia de Bolsillo</div>
+    <div style="overflow-x:auto;">
+    <table class="timeline-table">
+      <thead><tr><th>Fase</th><th>Período</th><th>Actividades principales</th><th>Hito</th></tr></thead>
+      <tbody>
+        <tr><td><span class="phase-badge">Setup</span></td><td>Sem 1–2</td><td>Arquitectura NVIDIA NEMO en Azure, setup Telegram bot, conexión Meta Ads API, Whisper en ACI, integración Claude</td><td><span class="hito-badge">Infra lista</span></td></tr>
+        <tr><td><span class="phase-badge">Integración</span></td><td>Sem 3–4</td><td>Pep: flujos Meta Ads, segmentación, presupuestos. Zizu: creatividades, copies, A/B testing.</td><td><span class="hito-badge">Agentes activos</span></td></tr>
+        <tr><td><span class="phase-badge">Testing</span></td><td>Sem 5–6</td><td>QA interno de flujos, fine-tuning con datos reales Salud S.A., capacitación grupo piloto</td><td><span class="hito-badge">QA aprobado</span></td></tr>
+        <tr><td><span class="phase-badge">Piloto</span></td><td>Sem 7–8</td><td>15 RNs operando con campañas reales en Meta Ads. Recolección de métricas y ajustes.</td><td><span class="hito-badge">Piloto vivo</span></td></tr>
+        <tr><td><span class="phase-badge">Go-Live</span></td><td>Sem 9–10</td><td>Despliegue general, capacitación masiva, dashboard gerencial activado para toda la fuerza de ventas.</td><td><span class="hito-badge">Go-live total</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ════════════════════ ARQUITECTURA DE SEGURIDAD ════════════════════ -->
+<div class="security-section">
+<div class="section">
+  <div class="section-label">Arquitectura de Seguridad Enterprise</div>
+  <div class="section-title">NVIDIA NEMO · Stack Azure · Seguridad Digital Salud S.A.</div>
+  <p class="section-desc">Toda la orquestación agéntica corre sobre NVIDIA NEMO, con infraestructura Microsoft Azure. Arquitectura de 5 capas con 7 barreras independientes. Datos PII nunca en tránsito. TTL de sesión 30 min. Logs inmutables en Azure Activity Log.</p>
+  <div class="divider"></div>
+
+  <!-- NEMO Block -->
+  <div class="nemo-block">
+    <h3>NVIDIA NEMO — Orquestador Agéntico Enterprise</h3>
+    <p>Motor de ejecución agéntica para despliegue enterprise. Gestiona el contexto de cada sesión, coordina modelos IA y herramientas exclusivamente con datos anonimizados. TTL automático 30 min. Logs inmutables. Self-hosted en infraestructura Azure del proyecto.</p>
+    <div class="nemo-badges">
+      <span class="nemo-badge">🔐 Zero PII in Transit</span>
+      <span class="nemo-badge">⏱️ TTL Sesión 30 min</span>
+      <span class="nemo-badge">📋 Logs Inmutables Azure</span>
+      <span class="nemo-badge">LOPDP Ecuador</span>
+      <span class="nemo-badge">SBS</span>
+      <span class="nemo-badge">ISO 27001</span>
+      <span class="nemo-badge">DPA con Proveedores</span>
+    </div>
+  </div>
+
+  <!-- 5 Capas -->
+  <div style="font-size:10px; font-weight:700; letter-spacing:3px; text-transform:uppercase; color:#8899bb; margin-bottom:20px;">⚙️ Stack Tecnológico — 5 Capas</div>
+  <div class="layer-grid">
+
+    <div class="layer-card nemo-card">
+      <div class="layer-num nemo">Capa 1 · Orquestadores</div>
+      <div class="layer-title">Motor Agéntico</div>
+      <div class="layer-tags">
+        <span class="tag">NVIDIA NEMO Enterprise</span>
+        <span class="tag">n8n (flujos estructurados)</span>
+        <span class="tag">LangGraph (pipelines)</span>
+      </div>
+    </div>
+
+    <div class="layer-card" style="background: rgba(130,80,200,0.08); border-color: rgba(130,80,200,0.25);">
+      <div class="layer-num" style="color: #c084fc;">Capa 2 · Modelos IA</div>
+      <div class="layer-title">Inteligencia Artificial</div>
+      <div class="layer-tags">
+        <span class="tag">Claude Sonnet (agente principal)</span>
+        <span class="tag">Whisper STT self-hosted</span>
+        <span class="tag">Perplexity (enriquecimiento)</span>
+      </div>
+    </div>
+
+    <div class="layer-card azure-card">
+      <div class="layer-num azure">☁️ Capa 3 · Infraestructura</div>
+      <div class="layer-title">Microsoft Azure</div>
+      <div class="layer-tags">
+        <span class="tag azure-tag">Azure Virtual Machines (D4s v5)</span>
+        <span class="tag azure-tag">Azure Container Instances (ACI)</span>
+        <span class="tag azure-tag">Azure Kubernetes Service (AKS)</span>
+        <span class="tag azure-tag">Azure DB for PostgreSQL Flexible</span>
+        <span class="tag azure-tag">Azure Blob Storage AES-256</span>
+        <span class="tag azure-tag">Azure Key Vault (CMK)</span>
+        <span class="tag azure-tag">Azure Virtual Network (VNet)</span>
+        <span class="tag azure-tag">NSG (Network Security Groups)</span>
+      </div>
+    </div>
+
+    <div class="layer-card security-card">
+      <div class="layer-num gold">🔒 Capa 4 · Seguridad</div>
+      <div class="layer-title">Seguridad Azure Enterprise</div>
+      <div class="layer-tags">
+        <span class="tag gold-tag">Azure WAF (App Gateway v2)</span>
+        <span class="tag gold-tag">Azure Entra ID MFA</span>
+        <span class="tag gold-tag">Azure API Management (APIM)</span>
+        <span class="tag gold-tag">Azure RBAC + PIM (JIT)</span>
+        <span class="tag gold-tag">Azure Monitor + Log Analytics</span>
+        <span class="tag gold-tag">Microsoft Sentinel (SIEM)</span>
+        <span class="tag gold-tag">Azure Activity Log (inmutable)</span>
+      </div>
+    </div>
+
+    <div class="layer-card" style="background: rgba(40,167,69,0.06); border-color: rgba(40,167,69,0.2); grid-column: span 1;">
+      <div class="layer-num" style="color: #5dca77;">🗄️ Capa 5 · Datos</div>
+      <div class="layer-title">Clasificación y Protección</div>
+      <div class="layer-tags">
+        <span class="tag green-tag">Tokenización PII</span>
+        <span class="tag green-tag">3 niveles: Público / Confidencial / Restringido</span>
+        <span class="tag green-tag">DPA firmados</span>
+        <span class="tag green-tag">Retención 1 año</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Seguridad general -->
+  <div style="margin-top: 32px; margin-bottom: 32px;">
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(260px,1fr)); gap:16px;">
+      <div style="background:rgba(0,120,212,0.08); border:1px solid rgba(0,120,212,0.2); border-radius:12px; padding:22px;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:2px; color:var(--azure-light); text-transform:uppercase; margin-bottom:10px;">☁️ Capa 3 · Infraestructura</div>
+        <p style="font-size:0.85rem; color:#aabbcc; line-height:1.7;">Toda la solución corre sobre infraestructura Microsoft Azure con aislamiento de componentes, cifrado de datos en reposo y en tránsito, y alta disponibilidad. Cada agente opera en entorno aislado e independiente.</p>
+      </div>
+      <div style="background:rgba(201,168,76,0.07); border:1px solid rgba(201,168,76,0.2); border-radius:12px; padding:22px;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:2px; color:var(--gold); text-transform:uppercase; margin-bottom:10px;">🔒 Capa 4 · Seguridad</div>
+        <p style="font-size:0.85rem; color:#aabbcc; line-height:1.7;">Protección perimetral con Azure WAF, autenticación multifactor obligatoria (Azure Entra ID), control de acceso por roles y principio de mínimo privilegio. Registros de auditoría continuos e inmutables. Compatible con el esquema de seguridad corporativo de Salud S.A.</p>
+      </div>
+      <div style="background:rgba(40,167,69,0.06); border:1px solid rgba(40,167,69,0.18); border-radius:12px; padding:22px;">
+        <div style="font-size:10px; font-weight:700; letter-spacing:2px; color:#5dca77; text-transform:uppercase; margin-bottom:10px;">🗄️ Capa 5 · Datos y Privacidad</div>
+        <p style="font-size:0.85rem; color:#aabbcc; line-height:1.7;">Clasificación de datos por nivel de sensibilidad. Los datos de identificación personal son anonimizados o tokenizados antes de cualquier procesamiento. Ningún dato sensible viaja en texto plano hacia modelos externos. Cumplimiento LOPDP y SBS.</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════ CRONOGRAMA + KPIs ═══════════════════ -->
+<div style="background: var(--navy-mid); border-top: 1px solid rgba(255,255,255,0.04);">
+<div class="section">
+  <div class="section-label">Cronograma Unificado e Indicadores</div>
+  <div class="section-title">16 Semanas · Implementación Paralela</div>
+  <p class="section-desc">Los dos proyectos se implementan en paralelo bajo una misma arquitectura de seguridad Azure + NVIDIA NEMO. El mantenimiento mensual inicia en el Mes 4. La entrega al Departamento de TI de Salud S.A. se realiza en el Mes 8.</p>
+  <div class="divider"></div>
+
+  <div style="overflow-x:auto; margin-bottom:40px;">
+  <table class="timeline-table">
+    <thead>
+      <tr><th>Sem.</th><th>Proyecto 01 · Sales Pilot v2</th><th>Proyecto 02 · Agencia de Bolsillo</th><th>Hito</th></tr>
+    </thead>
+    <tbody>
+      <tr><td style="color:var(--gold);font-weight:900;">1</td><td>Setup NVIDIA NEMO en Azure + HubSpot API</td><td>Setup Telegram Bot + Meta Ads API</td><td><span class="hito-badge">Kick-off</span></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">2</td><td>WhatsApp Business + Claude integration</td><td>Whisper self-hosted ACI + Claude</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">3</td><td>Lead Intelligence Agent</td><td>Agente Pep — flujos Meta Ads</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">4</td><td>Agente de Conversión 24/7</td><td>Agente Zizu — creatividades + A/B</td><td><span class="hito-badge">Infra completa</span></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">5</td><td>Motor de Hiperpersonalización</td><td>QA interno de todos los flujos</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">6</td><td>Dashboard comercial + Google Sheets Trazabilidad live</td><td>Fine-tuning datos reales Salud S.A.</td><td><span class="hito-badge">QA completado</span></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">7</td><td>QA + testing con leads reales en HubSpot</td><td>Piloto 15 RNs — campañas live</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">8</td><td>Piloto controlado — grupo real de leads</td><td>Optimización + métricas del piloto</td><td><span class="hito-badge">Pilotos activos</span></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">9</td><td>Ajuste fino argumentos y flujos</td><td>Go-live total fuerza de ventas</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">10</td><td>Optimización + primeros resultados</td><td>Capacitación + dashboard gerencial</td><td><span class="hito-badge">P02 Go-live ✓</span></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">11</td><td>Escalado total equipo de ventas</td><td>Operación estable</td><td></td></tr>
+      <tr><td style="color:var(--gold);font-weight:900;">12</td><td>Capacitación + documentación de resultados</td><td>Operación estable</td><td><span class="hito-badge">P01 Go-live ✓</span></td></tr>
+      <tr><td colspan="3" style="color:#667788; font-style:italic; text-align:center; background:rgba(201,168,76,0.04);">Mes 4 — Inicia mantenimiento mensual ambos proyectos · $1,610/mes + IVA 15%</td><td><span class="hito-badge">Maint. ON</span></td></tr>
+      <tr><td colspan="3" style="color:#5dca77; font-style:italic; text-align:center; background:rgba(40,167,69,0.04);">Mes 8 — Entrega formal al Departamento de TI de Salud S.A. · Código fuente + documentación técnica</td><td><span class="hito-badge" style="background:rgba(40,167,69,0.15); border-color:rgba(40,167,69,0.3); color:#5dca77;">Entrega TI ✓</span></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Google Sheets KPIs detail -->
+  <div style="background: rgba(52,168,83,0.06); border: 1px solid rgba(52,168,83,0.2); border-radius: 14px; padding: 24px; margin-top: 28px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#34a853; margin-bottom:12px;">📊 Google Sheets Trazabilidad — Estructura de Indicadores</div>
+    <p style="font-size:0.83rem; color:#7788aa; margin-bottom:16px;">Los agentes alimentan automáticamente el Google Sheets maestro. Los gerentes y el equipo de Salud S.A. acceden a indicadores en tiempo real sin necesidad de exportar datos de HubSpot.</p>
+    <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(180px,1fr)); gap:12px;">
+      <div style="background:rgba(52,168,83,0.1); border:1px solid rgba(52,168,83,0.2); border-radius:8px; padding:14px;">
+        <div style="color:#34a853; font-weight:700; font-size:0.85rem; margin-bottom:6px;">📥 Tab 1 · Leads</div>
+        <div style="font-size:0.75rem; color:#8899bb; line-height:1.6;">Origen · Canal · Timestamp · Score IA · Estado HubSpot · Asesor asignado</div>
+      </div>
+      <div style="background:rgba(52,168,83,0.1); border:1px solid rgba(52,168,83,0.2); border-radius:8px; padding:14px;">
+        <div style="color:#34a853; font-weight:700; font-size:0.85rem; margin-bottom:6px;">💬 Tab 2 · Interacciones</div>
+        <div style="font-size:0.75rem; color:#8899bb; line-height:1.6;">Log por lead · Agente responsable · Duración · Tipo de interacción · Outcome</div>
+      </div>
+      <div style="background:rgba(52,168,83,0.1); border:1px solid rgba(52,168,83,0.2); border-radius:8px; padding:14px;">
+        <div style="color:#34a853; font-weight:700; font-size:0.85rem; margin-bottom:6px;">📊 Tab 3 · Performance</div>
+        <div style="font-size:0.75rem; color:#8899bb; line-height:1.6;">Métricas diarias · Leads procesados · Conversiones · Tiempo respuesta · Por agente</div>
+      </div>
+      <div style="background:rgba(52,168,83,0.1); border:1px solid rgba(52,168,83,0.2); border-radius:8px; padding:14px;">
+        <div style="color:#34a853; font-weight:700; font-size:0.85rem; margin-bottom:6px;">📈 Tab 4 · Funnel</div>
+        <div style="font-size:0.75rem; color:#8899bb; line-height:1.6;">Lead → Contactado → Calificado → Propuesta → Cierre · Tasas por etapa</div>
+      </div>
+      <div style="background:rgba(52,168,83,0.1); border:1px solid rgba(52,168,83,0.2); border-radius:8px; padding:14px;">
+        <div style="color:#34a853; font-weight:700; font-size:0.85rem; margin-bottom:6px;">🎯 Tab 5 · KPIs Gerenciales</div>
+        <div style="font-size:0.75rem; color:#8899bb; line-height:1.6;">CPL auto-calculado · Tasa de conversión · ROI por canal · Comparativo semanal/mensual</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</div>
+
+
+<!-- ═══════════════════ INVERSIÓN Y CONDICIONES ═══════════════════ -->
+<div class="pricing-section">
+<div class="section">
+  <div class="section-label">Inversión y Condiciones Comerciales</div>
+  <div class="section-title">Propuesta Económica</div>
+  <p class="section-desc">Detalle de inversión con IVA 15%. Implementación completa en 16 semanas. Mantenimiento desde el Mes 4. Entrega al Departamento TI de Salud S.A. en el Mes 8. Forma de pago: 40% anticipo + 60% contra entrega a satisfacción.</p>
+  <div class="divider"></div>
+
+  <div class="pricing-table-wrap">
+  <table class="pricing-table">
+    <thead>
+      <tr>
+        <th>Concepto</th>
+        <th>Incluye</th>
+        <th>Neto</th>
+        <th>IVA 15%</th>
+        <th>Total c/IVA</th>
+        <th>Mant./mes c/IVA</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="color:var(--white); font-weight:700;">Sales Pilot v2</td>
+        <td style="font-size:0.78rem; color:#8899bb;">Lead Intel · Conversión 24/7 · Hiperpersonalización · HubSpot · Google Sheets · Dashboard · Capacitación</td>
+        <td>$25,000.00</td>
+        <td>$3,750.00</td>
+        <td>$28,750.00</td>
+        <td>$992.45</td>
+      </tr>
+      <tr>
+        <td style="color:var(--white); font-weight:700;">Agencia de Bolsillo — Pep &amp; Zizu</td>
+        <td style="font-size:0.78rem; color:#8899bb;">Agentes Meta Ads · Telegram Bot · Fine-tuning · Piloto 15 RNs · Dashboard</td>
+        <td>$15,800.00</td>
+        <td>$2,370.00</td>
+        <td>$18,170.00</td>
+        <td>$859.05</td>
+      </tr>
+      <tr class="total-row">
+        <td colspan="2">TOTAL IMPLEMENTACIÓN</td>
+        <td>$40,800.00</td>
+        <td>$6,120.00</td>
+        <td>$46,920.00</td>
+        <td>$1,851.50</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <!-- Mantenimiento detail -->
+  <div style="background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.05); border-radius: 14px; padding: 24px; margin-top: 24px; overflow-x:auto;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:16px;">🔄 Mantenimiento Mensual — Desde Mes 4 (Meses 1–3 incluidos en implementación)</div>
+    <table>
+      <thead><tr><th>Proyecto</th><th>Neto/mes</th><th>IVA 15%</th><th>Total/mes c/IVA</th><th>Incluye</th></tr></thead>
+      <tbody>
+        <tr><td>Sales Pilot v2</td><td>$863.00</td><td>$129.45</td><td>$992.45</td><td style="font-size:0.8rem; color:#8899bb;">Soporte técnico, actualizaciones flujos, monitoreo, ajuste agentes, Google Sheets trazabilidad</td></tr>
+        <tr><td>Agencia de Bolsillo</td><td>$747.00</td><td>$112.05</td><td>$859.05</td><td style="font-size:0.8rem; color:#8899bb;">Mantenimiento bot Telegram, actualizaciones modelos, soporte, integración Meta Ads</td></tr>
+        <tr style="font-weight:800; color:var(--gold);"><td>TOTAL MANT./MES</td><td>$1,610.00</td><td>$241.50</td><td>$1,851.50</td><td></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Proyección Mantenimiento Mes 4-7 -->
+  <div style="background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.2); border-radius: 14px; padding: 24px; margin-top: 20px; overflow-x:auto;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:16px;">📅 Proyección de Costos de Mantenimiento — Mes 4 al Mes 7 · Entrega TI en Mes 8</div>
+    <table>
+      <thead><tr><th>Período</th><th>Concepto</th><th>Monto c/IVA</th><th>Acumulado</th><th>Hito</th></tr></thead>
+      <tbody>
+        <tr><td style="color:var(--gold); font-weight:700;">Mes 4</td><td>Mantenimiento mensual (ambos proyectos)</td><td>$1,851.50</td><td>$1,851.50</td><td><span class="hito-badge">Inicio mant.</span></td></tr>
+        <tr><td style="color:var(--gold); font-weight:700;">Mes 5</td><td>Mantenimiento mensual (ambos proyectos)</td><td>$1,851.50</td><td>$3,703.00</td><td></td></tr>
+        <tr><td style="color:var(--gold); font-weight:700;">Mes 6</td><td>Mantenimiento mensual (ambos proyectos)</td><td>$1,851.50</td><td>$5,554.50</td><td></td></tr>
+        <tr><td style="color:var(--gold); font-weight:700;">Mes 7</td><td>Mantenimiento mensual (ambos proyectos)</td><td>$1,851.50</td><td>$7,406.00</td><td></td></tr>
+        <tr style="background:rgba(40,167,69,0.08);"><td style="color:#5dca77; font-weight:700;">Mes 8</td><td style="color:#5dca77; font-weight:600;">Entrega formal al Departamento de TI de Salud S.A. · Código fuente + documentación técnica completa</td><td style="color:#5dca77;">—</td><td style="color:#5dca77;">—</td><td><span class="hito-badge" style="background:rgba(40,167,69,0.15); border-color:rgba(40,167,69,0.3); color:#5dca77;">Entrega TI ✓</span></td></tr>
+        <tr style="font-weight:800; color:var(--gold); background:rgba(201,168,76,0.06);"><td colspan="2">TOTAL PROYECTADO MES 4–7</td><td>$7,406.00</td><td colspan="2">4 meses × $1,851.50</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:0.78rem; color:#556677; margin-top:12px;">A partir del Mes 8 y tras la entrega al Departamento de TI, el contrato de mantenimiento continúa bajo las condiciones acordadas o puede rescindirse con 30 días de preaviso, sin penalidades.</p>
+  </div>
+
+  <!-- Conditions -->
+  <div class="conditions-grid" style="margin-top: 32px;">
+    <div class="condition-card anticipo">
+      <div class="pct">40%</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#665522; margin:8px 0;">Anticipo · Inicio</div>
+      <div class="amount" style="color:var(--gold);">$18,768.00</div>
+      <div class="desc">Al inicio de la implementación, con la firma del contrato. Incluye IVA 15%.</div>
+    </div>
+    <div class="condition-card contralentrega">
+      <div class="pct">60%</div>
+      <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#003366; margin:8px 0;">Contra Entrega · A Satisfacción</div>
+      <div class="amount" style="color:var(--azure-light);">$28,152.00</div>
+      <div class="desc">A la entrega final y aceptación formal <strong>a satisfacción</strong> por parte de Salud S.A. Incluye IVA 15%.</div>
+    </div>
+  </div>
+
+  <!-- Summary payments -->
+  <div style="display:grid; grid-template-columns: repeat(auto-fit,minmax(180px,1fr)); gap:16px; margin-top:24px;">
+    <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:10px; padding:18px; text-align:center;">
+      <div style="font-size:10px; color:#556677; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Anticipo 40% — firma contrato</div>
+      <div style="font-size:1.5rem; font-weight:900; color:var(--gold);">$18,768.00</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:10px; padding:18px; text-align:center;">
+      <div style="font-size:10px; color:#556677; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Contra entrega 60% — a satisfacción</div>
+      <div style="font-size:1.5rem; font-weight:900; color:var(--azure-light);">$28,152.00</div>
+    </div>
+    <div style="background:rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.05); border-radius:10px; padding:18px; text-align:center;">
+      <div style="font-size:10px; color:#556677; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Mantenimiento mensual (mes 4+)</div>
+      <div style="font-size:1.5rem; font-weight:900; color:#5dca77;">$1,851.50</div>
+    </div>
+  </div>
+
+  <div style="background: rgba(201,168,76,0.04); border: 1px solid rgba(201,168,76,0.15); border-radius: 10px; padding: 16px 20px; margin-top: 24px;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-bottom:8px;">🛡️ Póliza de Fiel Cumplimiento de Contrato</div>
+    <p style="font-size:0.82rem; color:#8899bb; line-height:1.7;">El proveedor entregará una Póliza de Fiel Cumplimiento emitida por aseguradora habilitada en Ecuador, por el valor y condiciones acordados al momento de la firma. Vigente hasta la aceptación formal de los sistemas por Salud S.A.</p>
+  </div>
+
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap:12px; margin-top:24px; font-size:0.82rem; color:#7788aa;">
+    <div><strong style="color:#aabbcc;">Contacto:</strong><br>bksegurosec@gmail.com</div>
+    <div><strong style="color:#aabbcc;">Moneda:</strong><br>Dólares Americanos (USD)</div>
+    <div><strong style="color:#aabbcc;">IVA:</strong><br>15% — Servicio gravado Ecuador</div>
+    <div><strong style="color:#aabbcc;">Forma de pago:</strong><br>Transferencia bancaria</div>
+    <div><strong style="color:#aabbcc;">Validez:</strong><br>30 días desde emisión</div>
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════ TÉRMINOS ═══════════════════ -->
+<div class="terms-section" style="background: var(--navy);">
+<div class="section">
+  <div class="section-label">Términos Generales y Aceptación</div>
+  <div class="section-title">Marco de la Relación Comercial</div>
+  <div class="divider"></div>
+
+  <div class="terms-grid">
+    <div class="term-item"><div class="term-num">1</div><div><h4>Vigencia de la Propuesta</h4><p>Validez de 30 días calendario desde su fecha de emisión, salvo acuerdo expreso de prórroga entre las partes.</p></div></div>
+    <div class="term-item"><div class="term-num">2</div><div><h4>Inicio del Proyecto</h4><p>Dentro de los 5 días hábiles siguientes a la recepción del anticipo del 40% y la firma del contrato.</p></div></div>
+    <div class="term-item"><div class="term-num">3</div><div><h4>Costos de Plataformas y Licencias</h4><p>APIs de IA, Azure, Meta Ads, HubSpot, Google Workspace y plataformas de terceros son de exclusiva responsabilidad de Salud S.A.</p></div></div>
+    <div class="term-item"><div class="term-num">4</div><div><h4>Alcance y Control de Cambios</h4><p>Cualquier requerimiento adicional deberá formalizarse mediante una adenda al contrato, acordada por escrito por ambas partes.</p></div></div>
+    <div class="term-item"><div class="term-num">5</div><div><h4>Propiedad Intelectual</h4><p>Herramientas y metodologías propias del proveedor son de su propiedad. Los flujos y configuraciones específicos contratados son de uso exclusivo de Salud S.A. durante la vigencia del contrato.</p></div></div>
+    <div class="term-item"><div class="term-num">6</div><div><h4>Confidencialidad</h4><p>Toda la información intercambiada es estrictamente confidencial. Se suscribirá un NDA como documento previo al inicio de actividades técnicas.</p></div></div>
+    <div class="term-item"><div class="term-num">7</div><div><h4>Soporte Técnico</h4><p>Durante el mantenimiento mensual se brindará soporte para incidencias relacionadas con los desarrollos entregados. Tiempos de atención acordados en el contrato.</p></div></div>
+    <div class="term-item"><div class="term-num">8</div><div><h4>Mantenimiento y Rescisión</h4><p>El contrato de mantenimiento inicia en el Mes 4 y puede cancelarse con preaviso mínimo de 30 días, sin penalidades, una vez transcurridos los primeros 4 meses desde el inicio del período de mantenimiento.</p></div></div>
+    <div class="term-item"><div class="term-num">9</div><div><h4>Indicadores y Proyecciones</h4><p>Los indicadores incluidos se basan en benchmarks del sector. No constituyen compromisos ni garantías contractuales. Los resultados dependen de variables operativas de Salud S.A.</p></div></div>
+    <div class="term-item"><div class="term-num">10</div><div><h4>Resolución de Disputas</h4><p>Primera instancia: negociación directa. De no llegarse a acuerdo, mediación ante la Cámara de Comercio de Quito, conforme a la Ley de Arbitraje y Mediación del Ecuador.</p></div></div>
+  </div>
+
+  <!-- Signatures -->
+  <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#8899bb; margin-bottom:20px;">✍️ Firmas de Aceptación</div>
+  <div class="sign-row">
+    <div class="sign-box">
+      <div class="role">El Proveedor</div>
+      <div class="name">Felipe Salgado</div>
+      <div class="email">bksegurosec@gmail.com</div>
+      <div class="sign-line"></div>
+      <div class="date-label">Fecha: _________________________</div>
+    </div>
+    <div class="sign-box">
+      <div class="role">El Cliente · Salud S.A.</div>
+      <div class="name">Representante Autorizado</div>
+      <div class="email" style="color:#667788;">Cargo: _________________________</div>
+      <div class="sign-line"></div>
+      <div class="date-label">Fecha: _________________________</div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<!-- ═══════════════════ CLOSING BANNER ═══════════════════ -->
+<div class="closing-banner">
+  <h2>Salud S.A. puede liderar la<br><span>transformación digital comercial</span><br>del mercado de seguros en Ecuador</h2>
+  <p class="tagline">Versión 5.0 · Junio 2026 · Confidencial · bksegurosec@gmail.com</p>
+  <div class="closing-numbers">
+    <div class="closing-num"><div class="big">$46,920</div><div class="lbl">Inversión total c/IVA</div></div>
+    <div class="closing-num"><div class="big">16 sem.</div><div class="lbl">Implementación</div></div>
+    <div class="closing-num"><div class="big">400 RNs</div><div class="lbl">Potencial fuerza</div></div>
+    <div class="closing-num"><div class="big">Azure</div><div class="lbl">Infraestructura Enterprise</div></div>
+    <div class="closing-num"><div class="big">NEMO</div><div class="lbl">NVIDIA Enterprise</div></div>
+  </div>
+</div>
+
+</body>
+</html>
