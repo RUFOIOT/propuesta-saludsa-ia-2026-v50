@@ -8,8 +8,8 @@ Propuesta técnico-comercial para la **transformación agéntica con IA** del ci
 |---|---|---|
 | Dev Senior | [@RUFOIOT](https://github.com/RUFOIOT) | Owner |
 | Ingeniero líder / Builder & Developer | [@Pipo0516](https://github.com/Pipo0516) (Nicolás González) | ✅ Colaborador activo |
-| Developer | [@jeddiewars](https://github.com/jeddiewars) (Jonathan Guerrero) | Invitación pendiente |
-| Developer | [@ISRAELX25](https://github.com/ISRAELX25) (Israel Orellana) | Invitación pendiente |
+| Developer | [@jeddiewars](https://github.com/jeddiewars) (Jonathan Guerrero) | ✅ Colaborador activo |
+| Developer | [@ISRAELX25](https://github.com/ISRAELX25) (Israel Orellana) | ✅ Colaborador activo |
 
 ## 📄 Contenido del repositorio
 
