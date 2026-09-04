@@ -17,6 +17,21 @@ Propuesta técnico-comercial para la **transformación agéntica con IA** del ci
 |---|---|
 | `index.html` | Propuesta técnico-comercial completa de Sales Copilot: resumen ejecutivo, entregables, arquitectura, cronograma, inversión y términos. |
 | `isabel-journey.yaml` | Caso de prueba (QA) del customer journey de un lead ficticio ("Isabel") a través del funnel completo del agente: Lead → Contactado → Calificado → Propuesta → Cierre, con trazabilidad en HubSpot y Google Sheets. |
+| `backend/` | Backend Java (Spring Boot) del agente: Lead Intelligence, webhooks WhatsApp/Telegram, integración HubSpot, trazabilidad y API del dashboard. Ver [`backend/README.md`](backend/README.md). |
+
+## 💻 Código fuente — Backend (Java / Spring Boot)
+
+Implementación inicial de los entregables técnicos de Sales Copilot, en `backend/`:
+
+- **Lead Intelligence** (`LeadIntelligenceService`) — scoring 0-100 de cada lead
+- **Conversión 24/7** (`LeadWebhookController`, `ConversationAgentService`) — webhook de WhatsApp/Telegram
+- **Comandos de bot** (`BotCommandController`) — `propuesta` / `cotizar` / `seguimiento` / `agenda` / `briefing`
+- **Integración HubSpot CRM** (`HubSpotSyncService`) — sincronización bidireccional (stub listo para credenciales reales)
+- **Trazabilidad Google Sheets** (`GoogleSheetsTraceabilityService`) — stub listo para Sheets API v4
+- **Dashboard Comercial** (`DashboardController`) — KPIs en tiempo real vía API REST
+- Tests unitarios con JUnit 5
+
+Ver [`backend/README.md`](backend/README.md) para instrucciones de ejecución local (`mvn spring-boot:run`) y variables de entorno.
 
 ## 🚀 Resumen ejecutivo
 
