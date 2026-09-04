@@ -7,15 +7,16 @@ Propuesta técnico-comercial para la **transformación agéntica con IA** del ci
 | Rol | GitHub | Estado |
 |---|---|---|
 | Dev Senior | [@RUFOIOT](https://github.com/RUFOIOT) | Owner |
-| Ingeniero líder / Builder & Developer | [@Pipo0516](https://github.com/Pipo0516) (Nicolás González) | Invitación pendiente |
-| Developer | [@jeddiewars](https://github.com/jeddiewars) (Jonathan Guerrero) | Invitado |
-| Developer | Israel Orellana | ⚠️ Usuario de GitHub pendiente de confirmar |
+| Ingeniero líder / Builder & Developer | [@Pipo0516](https://github.com/Pipo0516) (Nicolás González) | ✅ Colaborador activo |
+| Developer | [@jeddiewars](https://github.com/jeddiewars) (Jonathan Guerrero) | Invitación pendiente |
+| Developer | [@ISRAELX25](https://github.com/ISRAELX25) (Israel Orellana) | Invitación pendiente |
 
 ## 📄 Contenido del repositorio
 
 | Archivo | Descripción |
 |---|---|
 | `index.html` | Propuesta técnico-comercial completa de Sales Copilot: resumen ejecutivo, entregables, arquitectura, cronograma, inversión y términos. |
+| `isabel-journey.yaml` | Caso de prueba (QA) del customer journey de un lead ficticio ("Isabel") a través del funnel completo del agente: Lead → Contactado → Calificado → Propuesta → Cierre, con trazabilidad en HubSpot y Google Sheets. |
 
 ## 🚀 Resumen ejecutivo
 
