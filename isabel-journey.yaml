@@ -1,0 +1,80 @@
+# Customer Journey de prueba — Sales Copilot (Sales Pilot v2)
+# Caso de QA: prospecto ficticio "Isabel" recorriendo el funnel completo del agente de ventas.
+# Uso: validar Lead Intelligence, conversión 24/7, hiperpersonalización, HubSpot CRM
+# y trazabilidad en Google Sheets descritos en la propuesta Sales Copilot.
+
+lead:
+  id: "isabel-demo-001"
+  nombre: "Isabel Torres"
+  canal_origen: "Meta / Formulario web"
+  telefono: "+593 9XX XXX XXX"
+  email: "isabel.torres@example.com"
+  perfil_publico:
+    edad_estimada: 34
+    ocupacion: "Emprendedora"
+    interes_detectado: "Plan de salud familiar"
+
+funnel:
+  - etapa: "Lead"
+    timestamp: "2026-09-01T09:00:00-05:00"
+    canal: "WhatsApp Business"
+    agente: "Lead Intelligence Agent"
+    accion: "Análisis de perfil público y generación de briefing automático"
+    score_ia: 78
+    estado_hubspot: "Nuevo contacto creado"
+
+  - etapa: "Contactado"
+    timestamp: "2026-09-01T09:01:00-05:00"
+    canal: "WhatsApp Business"
+    agente: "Agente Conversión 24/7"
+    accion: "Respuesta inmediata (0 min), saludo personalizado y calificación inicial"
+    comando_bot: "briefing"
+    estado_hubspot: "Deal creado — etapa: Contacto inicial"
+
+  - etapa: "Calificado"
+    timestamp: "2026-09-01T09:08:00-05:00"
+    canal: "WhatsApp Business"
+    agente: "Motor de Hiperpersonalización"
+    accion: "Landing page única generada con plan recomendado por IA"
+    landing_url: "https://saludsa.example.com/propuesta/isabel-torres"
+    estado_hubspot: "Deal actualizado — etapa: Calificado"
+
+  - etapa: "Propuesta"
+    timestamp: "2026-09-01T09:15:00-05:00"
+    canal: "WhatsApp Business"
+    agente: "Agente Conversión 24/7"
+    accion: "Envío de propuesta personalizada y agendamiento con asesor humano"
+    comando_bot: "propuesta"
+    asesor_asignado: "Por asignar"
+    estado_hubspot: "Deal actualizado — etapa: Propuesta enviada"
+
+  - etapa: "Cierre"
+    timestamp: "2026-09-01T14:30:00-05:00"
+    canal: "Llamada asesor humano"
+    agente: "Handoff a asesor"
+    accion: "Seguimiento y cierre por parte del equipo comercial"
+    comando_bot: "seguimiento"
+    resultado: "Pendiente de resolución (caso de prueba)"
+    estado_hubspot: "Deal actualizado — etapa: En negociación"
+
+trazabilidad_google_sheets:
+  tab_leads:
+    origen: "Meta / Formulario web"
+    canal: "WhatsApp Business"
+    score_ia: 78
+    estado_hubspot: "En negociación"
+  tab_interacciones:
+    total_interacciones: 4
+    duracion_promedio_respuesta: "0 min"
+  tab_performance_agentes:
+    agente_principal: "Lead Intelligence Agent + Agente Conversión 24/7"
+  tab_funnel_conversion:
+    etapa_actual: "Cierre"
+    tiempo_total_funnel: "5h 30min"
+  tab_kpis_gerenciales:
+    conversion_referencial: "9% → 20%"
+    tiempo_gestion_manual: "-94%"
+
+notas:
+  - "Este archivo es un caso de prueba (QA) para validar el flujo end-to-end del agente Sales Copilot."
+  - "No contiene datos reales de clientes de Salud S.A."
