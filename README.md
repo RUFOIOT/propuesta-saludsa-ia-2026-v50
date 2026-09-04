@@ -18,6 +18,7 @@ Propuesta técnico-comercial para la **transformación agéntica con IA** del ci
 | `index.html` | Propuesta técnico-comercial completa de Sales Copilot: resumen ejecutivo, entregables, arquitectura, cronograma, inversión y términos. |
 | `isabel-journey.yaml` | Caso de prueba (QA) del customer journey de un lead ficticio ("Isabel") a través del funnel completo del agente: Lead → Contactado → Calificado → Propuesta → Cierre, con trazabilidad en HubSpot y Google Sheets. |
 | `backend/` | Backend Java (Spring Boot) del agente: Lead Intelligence, webhooks WhatsApp/Telegram, integración HubSpot, trazabilidad y API del dashboard. Ver [`backend/README.md`](backend/README.md). |
+| `frontend/` | Dashboard Comercial (React + TypeScript) que consume la API del backend. Ver [`frontend/README.md`](frontend/README.md). |
 
 ## 💻 Código fuente — Backend (Java / Spring Boot)
 
@@ -32,6 +33,18 @@ Implementación inicial de los entregables técnicos de Sales Copilot, en `backe
 - Tests unitarios con JUnit 5
 
 Ver [`backend/README.md`](backend/README.md) para instrucciones de ejecución local (`mvn spring-boot:run`) y variables de entorno.
+
+## 💻 Código fuente — Frontend (React + TypeScript)
+
+Dashboard Comercial en `frontend/`, consumiendo la API del backend:
+
+- **SummaryCards** — tarjetas de KPIs (leads totales, calificados, tasa de conversión, score IA promedio)
+- **ChannelBreakdown** — distribución de leads por canal (WhatsApp, Telegram, web, referidos)
+- **LeadsTable** — tabla de leads con filtro por estado del funnel
+- Polling automático cada 30s contra `GET /api/dashboard/summary` y `GET /api/leads`
+- Build validado con `npm run build` (TypeScript + Vite, sin errores)
+
+Ver [`frontend/README.md`](frontend/README.md) para instrucciones de ejecución local (`npm install && npm run dev`).
 
 ## 🚀 Resumen ejecutivo
 
