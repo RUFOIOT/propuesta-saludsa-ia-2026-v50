@@ -2,8 +2,6 @@
 
 Propuesta técnico-comercial para la **transformación agéntica con IA** del ciclo de ventas de Salud S.A., sobre arquitectura **Microsoft Azure Enterprise** certificada con **NVIDIA NEMO — Enterprise Agentic Orchestration Platform**.
 
-> Este repositorio contiene únicamente el proyecto **Sales Copilot (Sales Pilot v2)**. El proyecto de marketing (Pep & Zizu) fue aislado a un repositorio propio.
-
 ## 👥 Equipo del proyecto
 
 | Rol | GitHub | Estado |
