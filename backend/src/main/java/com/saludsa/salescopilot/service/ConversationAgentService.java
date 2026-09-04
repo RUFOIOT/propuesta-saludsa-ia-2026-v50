@@ -50,9 +50,10 @@ public class ConversationAgentService {
             lead.avanzarEstado(Lead.Status.CALIFICADO);
         }
 
+        lead = leadRepository.save(lead); // genera lead.getId() antes de sincronizar con HubSpot
+
         String dealId = hubSpotSyncService.createOrUpdateDeal(lead);
         lead.vincularHubspot(dealId);
-
         lead = leadRepository.save(lead);
 
         Interaction interaction = new Interaction(
